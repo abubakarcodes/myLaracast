@@ -40,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     public function isAdmin(){
-        $admins = ['abubakarprince56@gmail.com'];
+        $admins = ['abubakar@gmail.com'];
         return in_array($this->email , $admins);
     }
 }
