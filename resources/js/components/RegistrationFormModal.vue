@@ -106,7 +106,6 @@ export default {
       username: "",
       password: "",
       password_confirmation: "",
-      rememberMe: true,
       loading: false,
     };
   },
@@ -136,7 +135,7 @@ export default {
           password: this.password,
           password_confirmation: this.password_confirmation
         })
-        .then(res => {
+        .then((res) => {
         //   console.log(res);
         //   console.log(this.loading);
           Swal.fire({
@@ -150,7 +149,7 @@ export default {
             }
           });
         })
-        .catch(err => {
+        .catch((err) => {
           if (err.response.status == 422) {
             if (err.response.data.email) {
               Swal.fire({
@@ -188,11 +187,11 @@ export default {
                 timer: 1500
               });
             }
-          } else {
+          } else if(err.response.status == 500) {
             Swal.fire({
               position: "top-end",
               icon: "error",
-              title: "Something Went Wrong. Please Try Again!",
+              title: "Internal Server Error. Try Again!",
               showConfirmButton: false,
               timer: 1500,
                onClose: () => {

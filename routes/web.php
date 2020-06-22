@@ -39,7 +39,7 @@ Route::post('/change-plan' , 'UsersProfileController@updatePlan')->name('update.
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/series/{series:slug}' , 'watchSeriesController@index')->name('series.show');
+Route::get('/series/{series:slug}' , 'WatchSeriesController@index')->name('series.show');
 Route::get('/series/{series:slug}/lessons/{id}' , 'WatchSeriesController@watchLessons')->name('series.lessons');
 //admin routes
 Route::group(['prefix' => 'admin' , 'as' => 'admin.','middleware' => ['admin']], function () {
